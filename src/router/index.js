@@ -13,21 +13,21 @@ const router = createRouter({
     {
       path: '/pokemon',
       name: 'pokemon',
-      component: PokemonView//() => import('../views/PokemonView.vue')
+      component: () => import('../views/PokemonView.vue'),
+      beforeEnter: (to, from, next) => {
+        if(!from.path){
+          next({
+            path: '/pokemon', 
+            name: 'pokemon',
+            component: PokemonView
+          })
+        }
+        else{
+          next()
+        }
+      }
     }
   ]
-})
-
-router.beforeEach((to, from, next) => {
-  if (to.path === '/pokemon' && !from.path) {
-    next({
-      path: '/pokemon',
-      name: 'pokemon',
-      component: PokemonView//() => import('../views/PokemonView.vue')
-    })
-  } else {
-    next()
-  }
 })
 
 export default router
