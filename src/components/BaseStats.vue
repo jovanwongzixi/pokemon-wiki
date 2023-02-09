@@ -67,7 +67,5 @@ export default {
 .indiv-stat{
     width: 4rem;
     border-radius: 10px;
-    /* margin-left: 5px;
-    margin-right: 5px; */
 }
 </style>

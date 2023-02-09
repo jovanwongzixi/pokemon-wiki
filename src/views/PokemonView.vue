@@ -31,8 +31,15 @@ export default {
     <main>
         <PokemonCard :pokemon="pokemon"/>
         <form @submit.prevent="searchPokemon" >
-            <input v-model="text" placeholder="Name or Id"/>
+            <input type="text" v-model="text" placeholder="Name or Id"/>
             <button>Search</button>
         </form>
     </main>
 </template>
+
+<style scoped>
+input {
+    padding: 0.3rem;
+    margin-right: 5px;
+}
+</style>
