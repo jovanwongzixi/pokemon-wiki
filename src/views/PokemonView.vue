@@ -16,8 +16,12 @@ export default {
             this.$emit('submit', this.text)
             if(this.text !== ''){
                 this.pokemon = this.text.toLowerCase()
-                sessionStorage.setItem("pokemon", this.text.toLowerCase())
                 this.text = ''
+            }
+            else {
+                const alertText = 'Empty input detected!'
+                this.$emit('alert', alertText)
+                alert(alertText)
             }
         },
     },

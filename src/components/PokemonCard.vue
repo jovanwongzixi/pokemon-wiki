@@ -23,12 +23,17 @@ export default {
             try {
                 const resPokemon = await api.get(`pokemon/${value}`);
                 const resPokemonSpecies = await api.get(`pokemon-species/${value}`);
+                sessionStorage.setItem("pokemon", value.toLowerCase())
+                console.log("no error!")
                 this.pokemonData = resPokemon.data;
                 this.pokemonSpeciesData = resPokemonSpecies.data;
-                console.log(resPokemon.data.name);
+                console.log(resPokemon.data);
             }
             catch (error) {
-                console.log(error);
+                console.log(error.message);
+                const alertText = `Invalid Pokemon Name or ID!\n${error.message}`
+                this.$emit('alert', alertText)
+                alert(alertText)
             }
         },
     },

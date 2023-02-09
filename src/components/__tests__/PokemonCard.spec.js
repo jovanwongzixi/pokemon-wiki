@@ -34,4 +34,21 @@ describe('PokemonCard', () =>{
         expect(wrapper.vm.pokemonData.name).toBe(mockPokemonData.data.name)
         expect(wrapper.vm.pokemonSpeciesData.name).toBe(mockPokemonData.data.name)
     })
+
+    it('alerts when axios API call failed', async () => {
+        vi.spyOn(api, 'get').mockRejectedValue(new Error('mocked error'))
+        const wrapper = shallowMount(PokemonCard, {
+            props:{ 
+                pokemon: 'tRolLiNput'
+            }
+        })
+
+        try {
+            await wrapper.vm.getPokemon('jjj')
+        } catch (error) {
+            expect(error.message).toBe('mocked error')
+        }
+        
+        expect(wrapper.emitted('alert')[0][0]).toBeTruthy()
+    })
 })

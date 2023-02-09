@@ -32,4 +32,14 @@ describe('PokemonView', () => {
         // ensures pokemon is updated
         expect(vm.pokemon).toBe('pikachu')
     })
+
+    it('alerts when empty input is detected', async () => {
+        const vm = wrapper.vm
+        const input = wrapper.find('input')
+        await input.setValue('')
+        await wrapper.find('form').trigger('submit')
+
+        // ensures form submitted
+        expect(wrapper.emitted('alert')[0][0]).toBe('Empty input detected!')
+    })
 })
