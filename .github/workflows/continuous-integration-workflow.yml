@@ -1,0 +1,29 @@
+#credit to https://medium.com/front-end-weekly/ci-cd-with-github-actions-to-deploy-on-github-pages-73e225f8f131 for template of this workflow
+
+name: "CI and CD"
+on: 
+  push:
+    branches: [ "main" ]
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.6.0
+      - name: Set-up Node
+        uses: actions/setup-node@v3.5.1
+        with:
+          node-version: "19.x"
+      - run: npm install
+      - name: Build
+        run: npm run build
+      - name: Test with Vitest
+        run: npm run test:unit
+      - name: Deploy Github Pages
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: gh-pages
+          build_dir: dist
+          jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
