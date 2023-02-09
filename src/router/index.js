@@ -16,10 +16,16 @@ const router = createRouter({
       component: () => import('../views/PokemonView.vue'),
       beforeEnter: (to, from, next) => {
         if(!from.path){
-          next({
+          Promise.resolve(import('../views/PokemonView.vue'))
+          .then((component) => {
+            next({
             path: '/pokemon', 
             name: 'pokemon',
             component: PokemonView
+          })
+          })
+          .catch(error =>{
+            console.error(error)
           })
         }
         else{
