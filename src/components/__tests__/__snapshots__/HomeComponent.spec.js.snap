@@ -1,0 +1,3 @@
+// Vitest Snapshot v1
+
+exports[`HomeComponent > renders properly 1`] = `"via GIPHYThis is a mini pokemon wiki site for me to practise my VueJS skills, along with unit testing using Vitest. Design to display pokemon info heavily inspired by Bulbapedia. Click on the Pokemon tab to start searching for a Pokemon!!"`;
