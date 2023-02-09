@@ -17,4 +17,15 @@ const router = createRouter({
   ]
 })
 
+router.beforeEach((to, from, next) => {
+  if (to.path === '/pokemon' && !from.path) {
+    next({
+      path: '/pokemon',
+      component: () => import('../views/PokemonView.vue')
+    })
+  } else {
+    next()
+  }
+})
+
 export default router

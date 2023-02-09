@@ -8,7 +8,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <h1>Pokémon-wiki</h1>
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/pokemon">Pokemon</RouterLink>
+        <RouterLink to="/pokemon">Pokémon</RouterLink>
         <a href="https://github.com/jovanwongzixi/pokemon-wiki">Github Repo</a>
       </nav>
     </div>
