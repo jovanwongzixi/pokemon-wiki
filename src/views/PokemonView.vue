@@ -15,6 +15,7 @@ export default {
         searchPokemon(){
             this.$emit('submit', this.text)
             if(this.text !== ''){
+                if(this.text.charAt(0) === '0') this.text = parseInt(this.text).toString()
                 this.pokemon = this.text.toLowerCase()
                 this.text = ''
             }
