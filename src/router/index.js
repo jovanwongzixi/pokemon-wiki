@@ -21,7 +21,7 @@ const router = createRouter({
             next({
             path: '/pokemon', 
             name: 'pokemon',
-            component: PokemonView
+            component: component,
           })
           })
           .catch(error =>{
@@ -31,6 +31,13 @@ const router = createRouter({
         else{
           next()
         }
+      }
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'notFound',
+      beforeEnter: (to, from, next) => {
+        next('/')
       }
     }
   ]
