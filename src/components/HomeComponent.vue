@@ -14,5 +14,6 @@ div {
 }
 p {
     margin-top: 0.2rem;
+    font-weight: 500;
 }
 </style>
