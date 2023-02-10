@@ -18,6 +18,9 @@ export default {
             this.getPokemon(value);
         }
     },
+    beforeMount(){
+        this.getPokemon(this.pokemon)
+    },
     methods: {
         async getPokemon(value) {
             try {
@@ -62,6 +65,7 @@ import HeightWeight from './HeightWeight.vue'
     <div
         id="pokemon-card" 
         :class="getType"
+        v-if="pokemonData!=={}"
     >
         <Name
             :names="pokemonSpeciesData.names"

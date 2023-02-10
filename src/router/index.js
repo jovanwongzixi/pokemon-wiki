@@ -11,27 +11,28 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/pokemon',
+      path: '/pokemon/:id',
+      props: route => ({id: route.params.id}),
       name: 'pokemon',
       component: () => import('../views/PokemonView.vue'),
-      beforeEnter: (to, from, next) => {
-        if(!from.path){
-          Promise.resolve(import('../views/PokemonView.vue'))
-          .then((component) => {
-            next({
-            path: '/pokemon', 
-            name: 'pokemon',
-            component: PokemonView
-          })
-          })
-          .catch(error =>{
-            console.error(error)
-          })
-        }
-        else{
-          next()
-        }
-      }
+      // beforeEnter: (to, from, next) => {
+      //   if(!from.path){
+      //     Promise.resolve(import('../views/PokemonView.vue'))
+      //     .then((component) => {
+      //       next({
+      //       path: '/pokemon', 
+      //       name: 'pokemon',
+      //       component: PokemonView
+      //     })
+      //     })
+      //     .catch(error =>{
+      //       console.error(error)
+      //     })
+      //   }
+      //   else{
+      //     next()
+      //   }
+      // }
     }
   ]
 })

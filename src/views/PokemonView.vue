@@ -1,49 +1,52 @@
 <script>
-import PokemonCard from '../components/PokemonCard.vue'
+// import PokemonCard from '../components/PokemonCard.vue'
 
 export default {
-    components: {
-        PokemonCard
-    },
+    // components: {
+    //     PokemonCard
+    // },
     data(){
         return{
-            text: '',
-            pokemon: '',
         }
     },
-    methods: {
-        searchPokemon(){
-            this.$emit('submit', this.text)
-            if(this.text !== ''){
-                this.pokemon = this.text.toLowerCase()
-                this.text = ''
-            }
-            else {
-                const alertText = 'Empty input detected!'
-                this.$emit('alert', alertText)
-                alert(alertText)
-            }
-        },
+    props: {
+        id: {
+            type: String,
+            required: true,
+        }
     },
-    mounted() {
-        this.pokemon = sessionStorage.getItem("pokemon") || 'bulbasaur'
-    },
+    computed: {
+        passDownPokemon(){
+            console.log(this.id)
+            return this.id
+        }
+    }
 }
+</script>
+
+<script setup>
+import PokemonCard from '../components/PokemonCard.vue'
 </script>
 
 <template>
     <main>
-        <PokemonCard :pokemon="pokemon"/>
-        <form @submit.prevent="searchPokemon" >
-            <input type="text" v-model="text" placeholder="Name or Id"/>
-            <button>Search</button>
-        </form>
+        <PokemonCard :pokemon="id"/>
     </main>
 </template>
 
 <style scoped>
+form {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: relative;
+}
 input {
-    padding: 0.3rem;
-    margin-right: 5px;
+    padding: 0.9rem;
+    border: 0;
+    margin-right: 10px;
+    width: 80%;
+    border-radius: 10px;
+    /* box-shadow: 0 0 15px 4px rgba(0,0,0,0.06); */
+    background: #f2f2f2;
 }
 </style>
