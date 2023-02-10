@@ -10,8 +10,8 @@ export default {
 <template>
     <div class="sub-card">
         <div class="white-subcard">
-            <img :src="front_default" /> 
-            <img :src="back_default" /> 
+            <img v-if="front_default" :src="front_default" /> 
+            <img v-if="back_default" :src="back_default" /> 
         </div>
     </div>
 </template>
