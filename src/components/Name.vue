@@ -7,13 +7,13 @@ export default {
     },
     computed: {
         generateEnName(){
-            return this.names === undefined ? '' : this.names[8].name
+            return this.names === undefined ? '' : this.names.find((val) => {return val.language.name === 'en'}).name
         },
         generateJaName(){
-            return this.names === undefined ? '' : this.names[0].name
+            return this.names === undefined ? '' : this.names.find((val) => {return val.language.name === 'ja-Hrkt'}).name
         },
         generateCategory(){
-            return this.category === undefined ? '' : this.category[7].genus
+            return this.category === undefined ? '' : this.category.find((val) => {return val.language.name === 'en'}).genus
         },
         generateId(){
             return this.id === undefined ? '' : '#' + this.id.toString().padStart(4, '0')
