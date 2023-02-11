@@ -2,8 +2,11 @@
 
 ## Description
 
-pokemon-wiki is a mini wiki that allows users to search for concise data about the pokemon they want. Design is heavily inspired by Bulbapedia XD.
+pokemon-wiki is a mini wiki that allows users to search for concise data about the pokemon they want. Design is heavily inspired by [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Main_Page) XD.
 
+Live page accessible at https://jovanwongzixi.github.io/pokemon-wiki/
+
+Utilised github action workflow with build-test-deploy CI/CD to automate deployment to github-pages
 ## Tech Used
 
 - VueJS
