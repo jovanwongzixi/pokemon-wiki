@@ -13,7 +13,15 @@ export default {
             return this.names === undefined ? '' : this.names.find((val) => {return val.language.name === 'ja-Hrkt'}).name
         },
         generateCategory(){
-            return this.category === undefined ? '' : this.category.find((val) => {return val.language.name === 'en'}).genus
+            if(this.category===undefined) return ''
+            else{
+                try {
+                    return this.category.find((val) => {return val.language.name === 'en'}).genus
+                } catch (error) {
+                    return ''
+                }
+            }
+            // return this.category === undefined ? '' : this.category.find((val) => {return val.language.name === 'en'}).genus
         },
         generateId(){
             return this.id === undefined ? '' : '#' + this.id.toString().padStart(4, '0')
@@ -25,10 +33,10 @@ export default {
 <template>
     <div class="sub-card" :style="{'grid-column': '1/span 2'}">
         <div class="white-subcard">
-            <b>{{ generateEnName }}</b>
-            <p>{{ generateJaName }}</p>
-            <p>{{ generateCategory }}</p>
-            <b>{{ generateId }}</b>
+            <b v-if="generateEnName">{{ generateEnName }}</b>
+            <p v-if="generateJaName">{{ generateJaName }}</p>
+            <p v-if="generateCategory">{{ generateCategory }}</p>
+            <b v-if="generateId">{{ generateId }}</b>
         </div>
     </div>
 </template>
