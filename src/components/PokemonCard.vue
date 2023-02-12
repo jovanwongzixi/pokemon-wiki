@@ -98,10 +98,14 @@ import HeightWeight from './HeightWeight.vue'
 
 <style scoped>
 #pokemon-card {
-    display: grid;
-    grid-template-columns: auto auto;
     border-radius: 10px;
     padding: 8px;
+}
+@media(min-width: 660px){
+    #pokemon-card {
+    display: grid;
+    grid-template-columns: auto auto;
     gap: 5px;
+}
 }
 </style>
