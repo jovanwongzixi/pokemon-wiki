@@ -10,6 +10,7 @@ Utilised github action workflow with build-test-deploy CI/CD to automate deploym
 ## Tech Used
 
 - VueJS
+- HTML/CSS
 - Vitest
 - Axios
 
@@ -66,6 +67,9 @@ npm run coverage
 Being a small scale wiki, the goal should be to provide concise information in a simple aesthetic for user to process easily and quickly. Hence, I only chose to display information that are more important.
 
 Different colour background used in PokemonCard for easy recognition of Pokemon primary type
+
+#### Screen width of different devices
+Although this wiki was designed primarily for desktop viewing, I used @media(min-width: ) in CSS to adjust the layout for body and PokemonCard component. PokemonCard is only rendered as a grid with 2 columns when the screen width is wide enough
 
 ### Code Design
 
